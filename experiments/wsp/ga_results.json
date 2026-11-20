@@ -1,0 +1,6878 @@
+{
+  "checkpoint": "runs/weights/best.pt",
+  "class_names": [
+    "blastocyst",
+    "cell",
+    "morula"
+  ],
+  "method": "GA over direct cell-class bias edits, shared by grouped 8-frame positions across videos; no gradient updates",
+  "genes": "14 groups x 9 bias deltas (3 anchors x 3 detection scales)",
+  "batch_size_frames": 8,
+  "batch_group_size": 4,
+  "batch_parameterization": "Each video resets batch position to zero. One vector is learned per group of adjacent positions on validation videos and reused in held-out videos. Groups beyond validation coverage use zero bias.",
+  "device": "mps",
+  "validation_groups": [
+    "BC254-1",
+    "DE069-10",
+    "DHDPI042-8",
+    "DT336-1",
+    "DV116-3",
+    "EH315-3",
+    "GRSO424-8",
+    "GUDPI077-8",
+    "HH569-2",
+    "LBE649-3",
+    "LC161-2-5",
+    "MP228-5",
+    "RI382-2",
+    "RS363-7",
+    "RV454-6",
+    "SK902-6",
+    "TA12-1",
+    "VC581-3",
+    "WM472-8",
+    "ZS435-5"
+  ],
+  "test_groups": [
+    "AAL839-6",
+    "AB91-1",
+    "AHS115-5",
+    "AM716-1",
+    "AM716-7",
+    "BC396-2",
+    "BS596-5",
+    "CL783-2",
+    "CM892-5",
+    "GC851-5",
+    "KA474-5",
+    "KD774-4",
+    "LP284-3",
+    "LS1045-4",
+    "MA797-4",
+    "PJ533-8",
+    "RA803-2",
+    "SK308-7",
+    "SS684-8",
+    "TM272-9",
+    "VA225-6"
+  ],
+  "search": {
+    "population": 6,
+    "generations": 5,
+    "screen_fraction": 0.5,
+    "finalists_full_validation": 3,
+    "seed": 37,
+    "bias_bound": 2.0,
+    "mutation_sigma": 0.35,
+    "mutation_rate": 0.02,
+    "miss_penalty_hours": 8.0
+  },
+  "history": [
+    {
+      "generation": 0,
+      "screen_fitness": 5.567333333333333,
+      "screen_metrics": {
+        "mae_hours_matched": 4.234,
+        "matched_events": 50,
+        "total_events": 60,
+        "missed_events": 10,
+        "coverage": 0.8333333333333334,
+        "per_video": {
+          "RV454-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1000000000000014
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.30000000000001137
+              },
+              {
+                "event": "t9+",
+                "error_hours": 5.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "VC581-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 20.099999999999994
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "DE069-10": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 11.299999999999997
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.1999999999999957
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "DV116-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 19.9
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.30000000000000426
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.3000000000000043
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t7",
+                "error_hours": 9.0
+              }
+            ],
+            "missed": [
+              "t8"
+            ]
+          },
+          "GRSO424-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "WM472-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.5
+              }
+            ],
+            "missed": [
+              "t4",
+              "t5",
+              "t8",
+              "t9+"
+            ]
+          },
+          "LC161-2-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1999999999999957
+              },
+              {
+                "event": "t6",
+                "error_hours": 22.6
+              },
+              {
+                "event": "t8",
+                "error_hours": 21.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 6.5
+              }
+            ],
+            "missed": []
+          },
+          "HH569-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t9+",
+                "error_hours": 17.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "RI382-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t8",
+                "error_hours": 13.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.5
+              }
+            ],
+            "missed": []
+          },
+          "TA12-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 16.1
+              },
+              {
+                "event": "t7",
+                "error_hours": 5.100000000000001
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          }
+        }
+      },
+      "best_candidate": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unique_candidates_scored": 6
+    },
+    {
+      "generation": 1,
+      "screen_fitness": 5.567333333333333,
+      "screen_metrics": {
+        "mae_hours_matched": 4.234,
+        "matched_events": 50,
+        "total_events": 60,
+        "missed_events": 10,
+        "coverage": 0.8333333333333334,
+        "per_video": {
+          "RV454-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1000000000000014
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.30000000000001137
+              },
+              {
+                "event": "t9+",
+                "error_hours": 5.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "VC581-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 20.099999999999994
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "DE069-10": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 11.299999999999997
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.1999999999999957
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "DV116-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 19.9
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.30000000000000426
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.3000000000000043
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t7",
+                "error_hours": 9.0
+              }
+            ],
+            "missed": [
+              "t8"
+            ]
+          },
+          "GRSO424-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "WM472-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.5
+              }
+            ],
+            "missed": [
+              "t4",
+              "t5",
+              "t8",
+              "t9+"
+            ]
+          },
+          "LC161-2-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1999999999999957
+              },
+              {
+                "event": "t6",
+                "error_hours": 22.6
+              },
+              {
+                "event": "t8",
+                "error_hours": 21.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 6.5
+              }
+            ],
+            "missed": []
+          },
+          "HH569-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t9+",
+                "error_hours": 17.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "RI382-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t8",
+                "error_hours": 13.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.5
+              }
+            ],
+            "missed": []
+          },
+          "TA12-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 16.1
+              },
+              {
+                "event": "t7",
+                "error_hours": 5.100000000000001
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          }
+        }
+      },
+      "best_candidate": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unique_candidates_scored": 11
+    },
+    {
+      "generation": 2,
+      "screen_fitness": 5.567333333333333,
+      "screen_metrics": {
+        "mae_hours_matched": 4.234,
+        "matched_events": 50,
+        "total_events": 60,
+        "missed_events": 10,
+        "coverage": 0.8333333333333334,
+        "per_video": {
+          "RV454-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1000000000000014
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.30000000000001137
+              },
+              {
+                "event": "t9+",
+                "error_hours": 5.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "VC581-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 20.099999999999994
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "DE069-10": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 11.299999999999997
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.1999999999999957
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "DV116-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 19.9
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.30000000000000426
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.3000000000000043
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t7",
+                "error_hours": 9.0
+              }
+            ],
+            "missed": [
+              "t8"
+            ]
+          },
+          "GRSO424-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "WM472-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.5
+              }
+            ],
+            "missed": [
+              "t4",
+              "t5",
+              "t8",
+              "t9+"
+            ]
+          },
+          "LC161-2-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1999999999999957
+              },
+              {
+                "event": "t6",
+                "error_hours": 22.6
+              },
+              {
+                "event": "t8",
+                "error_hours": 21.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 6.5
+              }
+            ],
+            "missed": []
+          },
+          "HH569-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t9+",
+                "error_hours": 17.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "RI382-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t8",
+                "error_hours": 13.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.5
+              }
+            ],
+            "missed": []
+          },
+          "TA12-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 16.1
+              },
+              {
+                "event": "t7",
+                "error_hours": 5.100000000000001
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          }
+        }
+      },
+      "best_candidate": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unique_candidates_scored": 15
+    },
+    {
+      "generation": 3,
+      "screen_fitness": 5.567333333333333,
+      "screen_metrics": {
+        "mae_hours_matched": 4.234,
+        "matched_events": 50,
+        "total_events": 60,
+        "missed_events": 10,
+        "coverage": 0.8333333333333334,
+        "per_video": {
+          "RV454-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1000000000000014
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.30000000000001137
+              },
+              {
+                "event": "t9+",
+                "error_hours": 5.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "VC581-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 20.099999999999994
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "DE069-10": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 11.299999999999997
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.1999999999999957
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "DV116-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 19.9
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.30000000000000426
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.3000000000000043
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t7",
+                "error_hours": 9.0
+              }
+            ],
+            "missed": [
+              "t8"
+            ]
+          },
+          "GRSO424-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "WM472-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.5
+              }
+            ],
+            "missed": [
+              "t4",
+              "t5",
+              "t8",
+              "t9+"
+            ]
+          },
+          "LC161-2-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1999999999999957
+              },
+              {
+                "event": "t6",
+                "error_hours": 22.6
+              },
+              {
+                "event": "t8",
+                "error_hours": 21.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 6.5
+              }
+            ],
+            "missed": []
+          },
+          "HH569-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t9+",
+                "error_hours": 17.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "RI382-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t8",
+                "error_hours": 13.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.5
+              }
+            ],
+            "missed": []
+          },
+          "TA12-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 16.1
+              },
+              {
+                "event": "t7",
+                "error_hours": 5.100000000000001
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          }
+        }
+      },
+      "best_candidate": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unique_candidates_scored": 20
+    },
+    {
+      "generation": 4,
+      "screen_fitness": 5.567333333333333,
+      "screen_metrics": {
+        "mae_hours_matched": 4.234,
+        "matched_events": 50,
+        "total_events": 60,
+        "missed_events": 10,
+        "coverage": 0.8333333333333334,
+        "per_video": {
+          "RV454-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1000000000000014
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.30000000000001137
+              },
+              {
+                "event": "t9+",
+                "error_hours": 5.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "VC581-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 20.099999999999994
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "DE069-10": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 11.299999999999997
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.1999999999999957
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "DV116-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 19.9
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.30000000000000426
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.3000000000000043
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t7",
+                "error_hours": 9.0
+              }
+            ],
+            "missed": [
+              "t8"
+            ]
+          },
+          "GRSO424-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "WM472-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.5
+              }
+            ],
+            "missed": [
+              "t4",
+              "t5",
+              "t8",
+              "t9+"
+            ]
+          },
+          "LC161-2-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1999999999999957
+              },
+              {
+                "event": "t6",
+                "error_hours": 22.6
+              },
+              {
+                "event": "t8",
+                "error_hours": 21.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 6.5
+              }
+            ],
+            "missed": []
+          },
+          "HH569-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t9+",
+                "error_hours": 17.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "RI382-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t8",
+                "error_hours": 13.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.5
+              }
+            ],
+            "missed": []
+          },
+          "TA12-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 16.1
+              },
+              {
+                "event": "t7",
+                "error_hours": 5.100000000000001
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          }
+        }
+      },
+      "best_candidate": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "unique_candidates_scored": 24
+    }
+  ],
+  "selected_biases_by_batch_group_scale_anchor": [
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0
+      ]
+    ]
+  ],
+  "validation_fitness": 7.101752808988765,
+  "validation_metrics": {
+    "mae_hours_matched": 4.797752808988765,
+    "matched_events": 89,
+    "total_events": 125,
+    "missed_events": 36,
+    "coverage": 0.712,
+    "per_video": {
+      "BC254-1": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 4.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 6.0000000000000036
+          },
+          {
+            "event": "t4",
+            "error_hours": 7.800000000000004
+          },
+          {
+            "event": "t5",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 11.200000000000003
+          },
+          {
+            "event": "t7",
+            "error_hours": 13.400000000000006
+          }
+        ],
+        "missed": []
+      },
+      "DE069-10": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 11.299999999999997
+          },
+          {
+            "event": "t5",
+            "error_hours": 1.1999999999999957
+          }
+        ],
+        "missed": [
+          "t6",
+          "t7",
+          "t8"
+        ]
+      },
+      "DHDPI042-8": {
+        "matched": [],
+        "missed": [
+          "t2",
+          "t4",
+          "t5",
+          "t6",
+          "t7",
+          "t8",
+          "t9+"
+        ]
+      },
+      "DT336-1": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.8000000000000043
+          },
+          {
+            "event": "t7",
+            "error_hours": 2.1999999999999957
+          },
+          {
+            "event": "t8",
+            "error_hours": 5.699999999999996
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "DV116-3": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 19.9
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.30000000000000426
+          },
+          {
+            "event": "t5",
+            "error_hours": 1.3000000000000043
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t7",
+            "error_hours": 9.0
+          }
+        ],
+        "missed": [
+          "t8"
+        ]
+      },
+      "EH315-3": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 42.300000000000004
+          },
+          {
+            "event": "t3",
+            "error_hours": 40.300000000000004
+          }
+        ],
+        "missed": [
+          "t4",
+          "t6",
+          "t8",
+          "t9+"
+        ]
+      },
+      "GRSO424-8": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 3.1999999999999993
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t5",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.19999999999999574
+          },
+          {
+            "event": "t7",
+            "error_hours": 0.6999999999999957
+          },
+          {
+            "event": "t8",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t9+",
+            "error_hours": 2.700000000000003
+          }
+        ],
+        "missed": []
+      },
+      "GUDPI077-8": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 10.599999999999998
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.6000000000000014
+          },
+          {
+            "event": "t5",
+            "error_hours": 3.4000000000000057
+          },
+          {
+            "event": "t6",
+            "error_hours": 2.3000000000000043
+          },
+          {
+            "event": "t7",
+            "error_hours": 0.6000000000000014
+          }
+        ],
+        "missed": [
+          "t8",
+          "t9+"
+        ]
+      },
+      "HH569-2": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.19999999999999574
+          },
+          {
+            "event": "t5",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.7000000000000028
+          },
+          {
+            "event": "t7",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t8",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t9+",
+            "error_hours": 17.200000000000003
+          }
+        ],
+        "missed": []
+      },
+      "LBE649-3": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.3000000000000007
+          }
+        ],
+        "missed": [
+          "t5",
+          "t6",
+          "t7",
+          "t8"
+        ]
+      },
+      "LC161-2-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 3.5
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t4",
+            "error_hours": 1.1999999999999957
+          },
+          {
+            "event": "t6",
+            "error_hours": 22.6
+          },
+          {
+            "event": "t8",
+            "error_hours": 21.700000000000003
+          },
+          {
+            "event": "t9+",
+            "error_hours": 6.5
+          }
+        ],
+        "missed": []
+      },
+      "MP228-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t4",
+            "error_hours": 1.5
+          },
+          {
+            "event": "t5",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.7000000000000028
+          },
+          {
+            "event": "t8",
+            "error_hours": 17.5
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "RI382-2": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 0.19999999999999574
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.5
+          },
+          {
+            "event": "t7",
+            "error_hours": 0.19999999999999574
+          },
+          {
+            "event": "t8",
+            "error_hours": 13.700000000000003
+          },
+          {
+            "event": "t9+",
+            "error_hours": 2.5
+          }
+        ],
+        "missed": []
+      },
+      "RS363-7": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 1.5
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.29999999999999716
+          },
+          {
+            "event": "t6",
+            "error_hours": 3.6999999999999957
+          },
+          {
+            "event": "t8",
+            "error_hours": 15.0
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "RV454-6": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t4",
+            "error_hours": 1.1000000000000014
+          },
+          {
+            "event": "t8",
+            "error_hours": 0.30000000000001137
+          },
+          {
+            "event": "t9+",
+            "error_hours": 5.200000000000003
+          }
+        ],
+        "missed": []
+      },
+      "SK902-6": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t5",
+            "error_hours": 6.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 5.299999999999997
+          },
+          {
+            "event": "t7",
+            "error_hours": 3.200000000000003
+          }
+        ],
+        "missed": [
+          "t8",
+          "t9+"
+        ]
+      },
+      "TA12-1": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 16.1
+          },
+          {
+            "event": "t7",
+            "error_hours": 5.100000000000001
+          }
+        ],
+        "missed": [
+          "t8",
+          "t9+"
+        ]
+      },
+      "VC581-3": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.7000000000000028
+          },
+          {
+            "event": "t8",
+            "error_hours": 20.099999999999994
+          },
+          {
+            "event": "t9+",
+            "error_hours": 2.700000000000003
+          }
+        ],
+        "missed": []
+      },
+      "WM472-8": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 10.5
+          }
+        ],
+        "missed": [
+          "t4",
+          "t5",
+          "t8",
+          "t9+"
+        ]
+      },
+      "ZS435-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.1999999999999993
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 1.7000000000000028
+          },
+          {
+            "event": "t5",
+            "error_hours": 3.299999999999997
+          }
+        ],
+        "missed": [
+          "t6",
+          "t7",
+          "t8",
+          "t9+"
+        ]
+      }
+    }
+  },
+  "full_validation_finalists": {
+    "0": {
+      "fitness": 7.101752808988765,
+      "metrics": {
+        "mae_hours_matched": 4.797752808988765,
+        "matched_events": 89,
+        "total_events": 125,
+        "missed_events": 36,
+        "coverage": 0.712,
+        "per_video": {
+          "BC254-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 4.0
+              },
+              {
+                "event": "t3",
+                "error_hours": 6.0000000000000036
+              },
+              {
+                "event": "t4",
+                "error_hours": 7.800000000000004
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 11.200000000000003
+              },
+              {
+                "event": "t7",
+                "error_hours": 13.400000000000006
+              }
+            ],
+            "missed": []
+          },
+          "DE069-10": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 11.299999999999997
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.1999999999999957
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "DHDPI042-8": {
+            "matched": [],
+            "missed": [
+              "t2",
+              "t4",
+              "t5",
+              "t6",
+              "t7",
+              "t8",
+              "t9+"
+            ]
+          },
+          "DT336-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.8000000000000043
+              },
+              {
+                "event": "t7",
+                "error_hours": 2.1999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 5.699999999999996
+              }
+            ],
+            "missed": [
+              "t9+"
+            ]
+          },
+          "DV116-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 19.9
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.30000000000000426
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.3000000000000043
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t7",
+                "error_hours": 9.0
+              }
+            ],
+            "missed": [
+              "t8"
+            ]
+          },
+          "EH315-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 42.300000000000004
+              },
+              {
+                "event": "t3",
+                "error_hours": 40.300000000000004
+              }
+            ],
+            "missed": [
+              "t4",
+              "t6",
+              "t8",
+              "t9+"
+            ]
+          },
+          "GRSO424-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "GUDPI077-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.599999999999998
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.6000000000000014
+              },
+              {
+                "event": "t5",
+                "error_hours": 3.4000000000000057
+              },
+              {
+                "event": "t6",
+                "error_hours": 2.3000000000000043
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6000000000000014
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          },
+          "HH569-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t9+",
+                "error_hours": 17.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "LBE649-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.3000000000000007
+              }
+            ],
+            "missed": [
+              "t5",
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "LC161-2-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1999999999999957
+              },
+              {
+                "event": "t6",
+                "error_hours": 22.6
+              },
+              {
+                "event": "t8",
+                "error_hours": 21.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 6.5
+              }
+            ],
+            "missed": []
+          },
+          "MP228-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 17.5
+              }
+            ],
+            "missed": [
+              "t9+"
+            ]
+          },
+          "RI382-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t8",
+                "error_hours": 13.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.5
+              }
+            ],
+            "missed": []
+          },
+          "RS363-7": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t3",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.29999999999999716
+              },
+              {
+                "event": "t6",
+                "error_hours": 3.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 15.0
+              }
+            ],
+            "missed": [
+              "t9+"
+            ]
+          },
+          "RV454-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1000000000000014
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.30000000000001137
+              },
+              {
+                "event": "t9+",
+                "error_hours": 5.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "SK902-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t5",
+                "error_hours": 6.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 5.299999999999997
+              },
+              {
+                "event": "t7",
+                "error_hours": 3.200000000000003
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          },
+          "TA12-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 16.1
+              },
+              {
+                "event": "t7",
+                "error_hours": 5.100000000000001
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          },
+          "VC581-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 20.099999999999994
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "WM472-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.5
+              }
+            ],
+            "missed": [
+              "t4",
+              "t5",
+              "t8",
+              "t9+"
+            ]
+          },
+          "ZS435-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t5",
+                "error_hours": 3.299999999999997
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8",
+              "t9+"
+            ]
+          }
+        }
+      }
+    },
+    "1": {
+      "fitness": 7.104000000000001,
+      "metrics": {
+        "mae_hours_matched": 4.800000000000001,
+        "matched_events": 89,
+        "total_events": 125,
+        "missed_events": 36,
+        "coverage": 0.712,
+        "per_video": {
+          "BC254-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 4.0
+              },
+              {
+                "event": "t3",
+                "error_hours": 6.0000000000000036
+              },
+              {
+                "event": "t4",
+                "error_hours": 7.800000000000004
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 11.200000000000003
+              },
+              {
+                "event": "t7",
+                "error_hours": 13.400000000000006
+              }
+            ],
+            "missed": []
+          },
+          "DE069-10": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 11.299999999999997
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.1999999999999957
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "DHDPI042-8": {
+            "matched": [],
+            "missed": [
+              "t2",
+              "t4",
+              "t5",
+              "t6",
+              "t7",
+              "t8",
+              "t9+"
+            ]
+          },
+          "DT336-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.8000000000000043
+              },
+              {
+                "event": "t7",
+                "error_hours": 2.1999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 5.699999999999996
+              }
+            ],
+            "missed": [
+              "t9+"
+            ]
+          },
+          "DV116-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 19.9
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.30000000000000426
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.3000000000000043
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t7",
+                "error_hours": 9.0
+              }
+            ],
+            "missed": [
+              "t8"
+            ]
+          },
+          "EH315-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 42.300000000000004
+              },
+              {
+                "event": "t3",
+                "error_hours": 40.300000000000004
+              }
+            ],
+            "missed": [
+              "t4",
+              "t6",
+              "t8",
+              "t9+"
+            ]
+          },
+          "GRSO424-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "GUDPI077-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.599999999999998
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.6000000000000014
+              },
+              {
+                "event": "t5",
+                "error_hours": 3.4000000000000057
+              },
+              {
+                "event": "t6",
+                "error_hours": 2.3000000000000043
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6000000000000014
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          },
+          "HH569-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t9+",
+                "error_hours": 17.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "LBE649-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.3000000000000007
+              }
+            ],
+            "missed": [
+              "t5",
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "LC161-2-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1999999999999957
+              },
+              {
+                "event": "t6",
+                "error_hours": 22.6
+              },
+              {
+                "event": "t8",
+                "error_hours": 21.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 6.5
+              }
+            ],
+            "missed": []
+          },
+          "MP228-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 17.5
+              }
+            ],
+            "missed": [
+              "t9+"
+            ]
+          },
+          "RI382-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t8",
+                "error_hours": 13.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.5
+              }
+            ],
+            "missed": []
+          },
+          "RS363-7": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t3",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.29999999999999716
+              },
+              {
+                "event": "t6",
+                "error_hours": 3.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 15.0
+              }
+            ],
+            "missed": [
+              "t9+"
+            ]
+          },
+          "RV454-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1000000000000014
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.30000000000001137
+              },
+              {
+                "event": "t9+",
+                "error_hours": 5.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "SK902-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t5",
+                "error_hours": 6.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 5.299999999999997
+              },
+              {
+                "event": "t7",
+                "error_hours": 3.200000000000003
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          },
+          "TA12-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 16.1
+              },
+              {
+                "event": "t7",
+                "error_hours": 5.100000000000001
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          },
+          "VC581-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 20.099999999999994
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "WM472-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.5
+              }
+            ],
+            "missed": [
+              "t4",
+              "t5",
+              "t8",
+              "t9+"
+            ]
+          },
+          "ZS435-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t5",
+                "error_hours": 3.299999999999997
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8",
+              "t9+"
+            ]
+          }
+        }
+      }
+    },
+    "2": {
+      "fitness": 7.104000000000001,
+      "metrics": {
+        "mae_hours_matched": 4.800000000000001,
+        "matched_events": 89,
+        "total_events": 125,
+        "missed_events": 36,
+        "coverage": 0.712,
+        "per_video": {
+          "BC254-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 4.0
+              },
+              {
+                "event": "t3",
+                "error_hours": 6.0000000000000036
+              },
+              {
+                "event": "t4",
+                "error_hours": 7.800000000000004
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 11.200000000000003
+              },
+              {
+                "event": "t7",
+                "error_hours": 13.400000000000006
+              }
+            ],
+            "missed": []
+          },
+          "DE069-10": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 11.299999999999997
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.1999999999999957
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "DHDPI042-8": {
+            "matched": [],
+            "missed": [
+              "t2",
+              "t4",
+              "t5",
+              "t6",
+              "t7",
+              "t8",
+              "t9+"
+            ]
+          },
+          "DT336-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.8000000000000043
+              },
+              {
+                "event": "t7",
+                "error_hours": 2.1999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 5.699999999999996
+              }
+            ],
+            "missed": [
+              "t9+"
+            ]
+          },
+          "DV116-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 19.9
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.30000000000000426
+              },
+              {
+                "event": "t5",
+                "error_hours": 1.3000000000000043
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t7",
+                "error_hours": 9.0
+              }
+            ],
+            "missed": [
+              "t8"
+            ]
+          },
+          "EH315-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 42.300000000000004
+              },
+              {
+                "event": "t3",
+                "error_hours": 40.300000000000004
+              }
+            ],
+            "missed": [
+              "t4",
+              "t6",
+              "t8",
+              "t9+"
+            ]
+          },
+          "GRSO424-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "GUDPI077-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.599999999999998
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.6000000000000014
+              },
+              {
+                "event": "t5",
+                "error_hours": 3.4000000000000057
+              },
+              {
+                "event": "t6",
+                "error_hours": 2.3000000000000043
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.6000000000000014
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          },
+          "HH569-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t9+",
+                "error_hours": 17.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "LBE649-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.3000000000000007
+              }
+            ],
+            "missed": [
+              "t5",
+              "t6",
+              "t7",
+              "t8"
+            ]
+          },
+          "LC161-2-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 3.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1999999999999957
+              },
+              {
+                "event": "t6",
+                "error_hours": 22.6
+              },
+              {
+                "event": "t8",
+                "error_hours": 21.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 6.5
+              }
+            ],
+            "missed": []
+          },
+          "MP228-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.20000000000000284
+              },
+              {
+                "event": "t6",
+                "error_hours": 0.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 17.5
+              }
+            ],
+            "missed": [
+              "t9+"
+            ]
+          },
+          "RI382-2": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t7",
+                "error_hours": 0.19999999999999574
+              },
+              {
+                "event": "t8",
+                "error_hours": 13.700000000000003
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.5
+              }
+            ],
+            "missed": []
+          },
+          "RS363-7": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t3",
+                "error_hours": 1.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.29999999999999716
+              },
+              {
+                "event": "t6",
+                "error_hours": 3.6999999999999957
+              },
+              {
+                "event": "t8",
+                "error_hours": 15.0
+              }
+            ],
+            "missed": [
+              "t9+"
+            ]
+          },
+          "RV454-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.1000000000000014
+              },
+              {
+                "event": "t8",
+                "error_hours": 0.30000000000001137
+              },
+              {
+                "event": "t9+",
+                "error_hours": 5.200000000000003
+              }
+            ],
+            "missed": []
+          },
+          "SK902-6": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t5",
+                "error_hours": 6.0
+              },
+              {
+                "event": "t6",
+                "error_hours": 5.299999999999997
+              },
+              {
+                "event": "t7",
+                "error_hours": 3.200000000000003
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          },
+          "TA12-1": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 1.0
+              },
+              {
+                "event": "t5",
+                "error_hours": 16.1
+              },
+              {
+                "event": "t7",
+                "error_hours": 5.100000000000001
+              }
+            ],
+            "missed": [
+              "t8",
+              "t9+"
+            ]
+          },
+          "VC581-3": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t4",
+                "error_hours": 0.5
+              },
+              {
+                "event": "t6",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t8",
+                "error_hours": 20.099999999999994
+              },
+              {
+                "event": "t9+",
+                "error_hours": 2.700000000000003
+              }
+            ],
+            "missed": []
+          },
+          "WM472-8": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 10.5
+              }
+            ],
+            "missed": [
+              "t4",
+              "t5",
+              "t8",
+              "t9+"
+            ]
+          },
+          "ZS435-5": {
+            "matched": [
+              {
+                "event": "t2",
+                "error_hours": 0.1999999999999993
+              },
+              {
+                "event": "t3",
+                "error_hours": 0.0
+              },
+              {
+                "event": "t4",
+                "error_hours": 1.7000000000000028
+              },
+              {
+                "event": "t5",
+                "error_hours": 3.299999999999997
+              }
+            ],
+            "missed": [
+              "t6",
+              "t7",
+              "t8",
+              "t9+"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "baseline_test": {
+    "mae_hours_matched": 4.3774999999999995,
+    "matched_events": 120,
+    "total_events": 133,
+    "missed_events": 13,
+    "coverage": 0.9022556390977443,
+    "per_video": {
+      "AAL839-6": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 5.599999999999998
+          },
+          {
+            "event": "t4",
+            "error_hours": 3.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 7.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 8.400000000000002
+          },
+          {
+            "event": "t7",
+            "error_hours": 12.599999999999998
+          },
+          {
+            "event": "t9+",
+            "error_hours": 0.5999999999999943
+          }
+        ],
+        "missed": []
+      },
+      "AB91-1": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.1999999999999993
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 11.299999999999997
+          },
+          {
+            "event": "t5",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t7",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t8",
+            "error_hours": 15.5
+          },
+          {
+            "event": "t9+",
+            "error_hours": 1.0
+          }
+        ],
+        "missed": []
+      },
+      "AHS115-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 3.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 5.299999999999997
+          },
+          {
+            "event": "t7",
+            "error_hours": 1.5
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "AM716-1": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.19999999999999574
+          },
+          {
+            "event": "t4",
+            "error_hours": 13.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 2.5
+          },
+          {
+            "event": "t6",
+            "error_hours": 3.1999999999999957
+          },
+          {
+            "event": "t8",
+            "error_hours": 17.799999999999997
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "AM716-7": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 13.200000000000003
+          },
+          {
+            "event": "t5",
+            "error_hours": 1.5
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t7",
+            "error_hours": 1.7000000000000028
+          },
+          {
+            "event": "t8",
+            "error_hours": 18.5
+          },
+          {
+            "event": "t9+",
+            "error_hours": 4.5
+          }
+        ],
+        "missed": []
+      },
+      "BC396-2": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.29999999999999716
+          },
+          {
+            "event": "t5",
+            "error_hours": 8.299999999999997
+          },
+          {
+            "event": "t7",
+            "error_hours": 24.4
+          },
+          {
+            "event": "t8",
+            "error_hours": 24.699999999999996
+          },
+          {
+            "event": "t9+",
+            "error_hours": 12.699999999999989
+          }
+        ],
+        "missed": []
+      },
+      "BS596-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.5999999999999979
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.6000000000000014
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.6999999999999957
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t8",
+            "error_hours": 6.399999999999999
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "CL783-2": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.19999999999999574
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 0.19999999999999574
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t7",
+            "error_hours": 2.6999999999999957
+          },
+          {
+            "event": "t8",
+            "error_hours": 25.1
+          },
+          {
+            "event": "t9+",
+            "error_hours": 3.700000000000003
+          }
+        ],
+        "missed": []
+      },
+      "CM892-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 11.2
+          },
+          {
+            "event": "t3",
+            "error_hours": 1.2000000000000028
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 11.799999999999997
+          },
+          {
+            "event": "t6",
+            "error_hours": 12.299999999999997
+          }
+        ],
+        "missed": [
+          "t7",
+          "t9+"
+        ]
+      },
+      "GC851-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.3000000000000007
+          },
+          {
+            "event": "t3",
+            "error_hours": 7.9999999999999964
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 7.399999999999999
+          },
+          {
+            "event": "t7",
+            "error_hours": 10.0
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "KA474-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.30000000000000426
+          },
+          {
+            "event": "t3",
+            "error_hours": 13.800000000000004
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.8000000000000043
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.7000000000000028
+          },
+          {
+            "event": "t7",
+            "error_hours": 2.200000000000003
+          },
+          {
+            "event": "t8",
+            "error_hours": 1.5
+          },
+          {
+            "event": "t9+",
+            "error_hours": 16.700000000000003
+          }
+        ],
+        "missed": []
+      },
+      "KD774-4": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.3999999999999986
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 1.6999999999999957
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.2999999999999972
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "LP284-3": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 2.5
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t8",
+            "error_hours": 2.3000000000000043
+          }
+        ],
+        "missed": []
+      },
+      "LS1045-4": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.1999999999999957
+          },
+          {
+            "event": "t7",
+            "error_hours": 8.0
+          },
+          {
+            "event": "t8",
+            "error_hours": 7.5
+          },
+          {
+            "event": "t9+",
+            "error_hours": 3.8000000000000114
+          }
+        ],
+        "missed": []
+      },
+      "MA797-4": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.1999999999999993
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t7",
+            "error_hours": 2.0
+          },
+          {
+            "event": "t8",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t9+",
+            "error_hours": 0.5
+          }
+        ],
+        "missed": []
+      },
+      "PJ533-8": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 12.100000000000001
+          },
+          {
+            "event": "t4",
+            "error_hours": 2.700000000000003
+          },
+          {
+            "event": "t5",
+            "error_hours": 2.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 8.300000000000004
+          }
+        ],
+        "missed": [
+          "t7",
+          "t8"
+        ]
+      },
+      "RA803-2": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t7",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t8",
+            "error_hours": 17.200000000000003
+          },
+          {
+            "event": "t9+",
+            "error_hours": 1.7000000000000028
+          }
+        ],
+        "missed": []
+      },
+      "SK308-7": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 1.5
+          },
+          {
+            "event": "t7",
+            "error_hours": 18.0
+          },
+          {
+            "event": "t8",
+            "error_hours": 11.200000000000003
+          },
+          {
+            "event": "t9+",
+            "error_hours": 5.0
+          }
+        ],
+        "missed": []
+      },
+      "SS684-8": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 3.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.29999999999999716
+          },
+          {
+            "event": "t6",
+            "error_hours": 4.199999999999996
+          },
+          {
+            "event": "t8",
+            "error_hours": 16.699999999999996
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "TM272-9": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t4",
+            "error_hours": 12.899999999999999
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.5
+          }
+        ],
+        "missed": [
+          "t8"
+        ]
+      },
+      "VA225-6": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.3999999999999986
+          },
+          {
+            "event": "t3",
+            "error_hours": 1.6000000000000014
+          },
+          {
+            "event": "t4",
+            "error_hours": 3.700000000000003
+          },
+          {
+            "event": "t5",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.6999999999999957
+          }
+        ],
+        "missed": [
+          "t7",
+          "t8"
+        ]
+      }
+    }
+  },
+  "selected_test": {
+    "mae_hours_matched": 4.3774999999999995,
+    "matched_events": 120,
+    "total_events": 133,
+    "missed_events": 13,
+    "coverage": 0.9022556390977443,
+    "per_video": {
+      "AAL839-6": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 5.599999999999998
+          },
+          {
+            "event": "t4",
+            "error_hours": 3.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 7.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 8.400000000000002
+          },
+          {
+            "event": "t7",
+            "error_hours": 12.599999999999998
+          },
+          {
+            "event": "t9+",
+            "error_hours": 0.5999999999999943
+          }
+        ],
+        "missed": []
+      },
+      "AB91-1": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.1999999999999993
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 11.299999999999997
+          },
+          {
+            "event": "t5",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t7",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t8",
+            "error_hours": 15.5
+          },
+          {
+            "event": "t9+",
+            "error_hours": 1.0
+          }
+        ],
+        "missed": []
+      },
+      "AHS115-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 3.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 5.299999999999997
+          },
+          {
+            "event": "t7",
+            "error_hours": 1.5
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "AM716-1": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.19999999999999574
+          },
+          {
+            "event": "t4",
+            "error_hours": 13.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 2.5
+          },
+          {
+            "event": "t6",
+            "error_hours": 3.1999999999999957
+          },
+          {
+            "event": "t8",
+            "error_hours": 17.799999999999997
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "AM716-7": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 13.200000000000003
+          },
+          {
+            "event": "t5",
+            "error_hours": 1.5
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t7",
+            "error_hours": 1.7000000000000028
+          },
+          {
+            "event": "t8",
+            "error_hours": 18.5
+          },
+          {
+            "event": "t9+",
+            "error_hours": 4.5
+          }
+        ],
+        "missed": []
+      },
+      "BC396-2": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.29999999999999716
+          },
+          {
+            "event": "t5",
+            "error_hours": 8.299999999999997
+          },
+          {
+            "event": "t7",
+            "error_hours": 24.4
+          },
+          {
+            "event": "t8",
+            "error_hours": 24.699999999999996
+          },
+          {
+            "event": "t9+",
+            "error_hours": 12.699999999999989
+          }
+        ],
+        "missed": []
+      },
+      "BS596-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.5999999999999979
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.6000000000000014
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.6999999999999957
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t8",
+            "error_hours": 6.399999999999999
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "CL783-2": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.19999999999999574
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 0.19999999999999574
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t7",
+            "error_hours": 2.6999999999999957
+          },
+          {
+            "event": "t8",
+            "error_hours": 25.1
+          },
+          {
+            "event": "t9+",
+            "error_hours": 3.700000000000003
+          }
+        ],
+        "missed": []
+      },
+      "CM892-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 11.2
+          },
+          {
+            "event": "t3",
+            "error_hours": 1.2000000000000028
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 11.799999999999997
+          },
+          {
+            "event": "t6",
+            "error_hours": 12.299999999999997
+          }
+        ],
+        "missed": [
+          "t7",
+          "t9+"
+        ]
+      },
+      "GC851-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.3000000000000007
+          },
+          {
+            "event": "t3",
+            "error_hours": 7.9999999999999964
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 7.399999999999999
+          },
+          {
+            "event": "t7",
+            "error_hours": 10.0
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "KA474-5": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.30000000000000426
+          },
+          {
+            "event": "t3",
+            "error_hours": 13.800000000000004
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.8000000000000043
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.7000000000000028
+          },
+          {
+            "event": "t7",
+            "error_hours": 2.200000000000003
+          },
+          {
+            "event": "t8",
+            "error_hours": 1.5
+          },
+          {
+            "event": "t9+",
+            "error_hours": 16.700000000000003
+          }
+        ],
+        "missed": []
+      },
+      "KD774-4": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.3999999999999986
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 1.6999999999999957
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.2999999999999972
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "LP284-3": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 2.5
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t8",
+            "error_hours": 2.3000000000000043
+          }
+        ],
+        "missed": []
+      },
+      "LS1045-4": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.1999999999999957
+          },
+          {
+            "event": "t7",
+            "error_hours": 8.0
+          },
+          {
+            "event": "t8",
+            "error_hours": 7.5
+          },
+          {
+            "event": "t9+",
+            "error_hours": 3.8000000000000114
+          }
+        ],
+        "missed": []
+      },
+      "MA797-4": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.1999999999999993
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t7",
+            "error_hours": 2.0
+          },
+          {
+            "event": "t8",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t9+",
+            "error_hours": 0.5
+          }
+        ],
+        "missed": []
+      },
+      "PJ533-8": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 12.100000000000001
+          },
+          {
+            "event": "t4",
+            "error_hours": 2.700000000000003
+          },
+          {
+            "event": "t5",
+            "error_hours": 2.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 8.300000000000004
+          }
+        ],
+        "missed": [
+          "t7",
+          "t8"
+        ]
+      },
+      "RA803-2": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t5",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t7",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t8",
+            "error_hours": 17.200000000000003
+          },
+          {
+            "event": "t9+",
+            "error_hours": 1.7000000000000028
+          }
+        ],
+        "missed": []
+      },
+      "SK308-7": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.5
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 1.5
+          },
+          {
+            "event": "t7",
+            "error_hours": 18.0
+          },
+          {
+            "event": "t8",
+            "error_hours": 11.200000000000003
+          },
+          {
+            "event": "t9+",
+            "error_hours": 5.0
+          }
+        ],
+        "missed": []
+      },
+      "SS684-8": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 3.0
+          },
+          {
+            "event": "t3",
+            "error_hours": 0.0
+          },
+          {
+            "event": "t4",
+            "error_hours": 0.29999999999999716
+          },
+          {
+            "event": "t6",
+            "error_hours": 4.199999999999996
+          },
+          {
+            "event": "t8",
+            "error_hours": 16.699999999999996
+          }
+        ],
+        "missed": [
+          "t9+"
+        ]
+      },
+      "TM272-9": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.20000000000000284
+          },
+          {
+            "event": "t4",
+            "error_hours": 12.899999999999999
+          },
+          {
+            "event": "t6",
+            "error_hours": 1.5
+          }
+        ],
+        "missed": [
+          "t8"
+        ]
+      },
+      "VA225-6": {
+        "matched": [
+          {
+            "event": "t2",
+            "error_hours": 0.3999999999999986
+          },
+          {
+            "event": "t3",
+            "error_hours": 1.6000000000000014
+          },
+          {
+            "event": "t4",
+            "error_hours": 3.700000000000003
+          },
+          {
+            "event": "t5",
+            "error_hours": 1.0
+          },
+          {
+            "event": "t6",
+            "error_hours": 0.6999999999999957
+          }
+        ],
+        "missed": [
+          "t7",
+          "t8"
+        ]
+      }
+    }
+  },
+  "test_delta_mae_hours": 0.0,
+  "direct_wsp_reference": {
+    "selected_bias": 0.0,
+    "baseline_test": {
+      "mae_hours_matched": 4.3774999999999995,
+      "matched_events": 120,
+      "total_events": 133,
+      "missed_events": 13,
+      "coverage": 0.9022556390977443,
+      "per_video": {
+        "AAL839-6": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 5.599999999999998
+            },
+            {
+              "event": "t4",
+              "error_hours": 3.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 7.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 8.400000000000002
+            },
+            {
+              "event": "t7",
+              "error_hours": 12.599999999999998
+            },
+            {
+              "event": "t9+",
+              "error_hours": 0.5999999999999943
+            }
+          ],
+          "missed": []
+        },
+        "AB91-1": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.1999999999999993
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 11.299999999999997
+            },
+            {
+              "event": "t5",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t7",
+              "error_hours": 0.20000000000000284
+            },
+            {
+              "event": "t8",
+              "error_hours": 15.5
+            },
+            {
+              "event": "t9+",
+              "error_hours": 1.0
+            }
+          ],
+          "missed": []
+        },
+        "AHS115-5": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t3",
+              "error_hours": 3.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 5.299999999999997
+            },
+            {
+              "event": "t7",
+              "error_hours": 1.5
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "AM716-1": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.19999999999999574
+            },
+            {
+              "event": "t4",
+              "error_hours": 13.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 2.5
+            },
+            {
+              "event": "t6",
+              "error_hours": 3.1999999999999957
+            },
+            {
+              "event": "t8",
+              "error_hours": 17.799999999999997
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "AM716-7": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 13.200000000000003
+            },
+            {
+              "event": "t5",
+              "error_hours": 1.5
+            },
+            {
+              "event": "t6",
+              "error_hours": 0.5
+            },
+            {
+              "event": "t7",
+              "error_hours": 1.7000000000000028
+            },
+            {
+              "event": "t8",
+              "error_hours": 18.5
+            },
+            {
+              "event": "t9+",
+              "error_hours": 4.5
+            }
+          ],
+          "missed": []
+        },
+        "BC396-2": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.5
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.29999999999999716
+            },
+            {
+              "event": "t5",
+              "error_hours": 8.299999999999997
+            },
+            {
+              "event": "t7",
+              "error_hours": 24.4
+            },
+            {
+              "event": "t8",
+              "error_hours": 24.699999999999996
+            },
+            {
+              "event": "t9+",
+              "error_hours": 12.699999999999989
+            }
+          ],
+          "missed": []
+        },
+        "BS596-5": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.5999999999999979
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.6000000000000014
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.6999999999999957
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t8",
+              "error_hours": 6.399999999999999
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "CL783-2": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.19999999999999574
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 0.19999999999999574
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t7",
+              "error_hours": 2.6999999999999957
+            },
+            {
+              "event": "t8",
+              "error_hours": 25.1
+            },
+            {
+              "event": "t9+",
+              "error_hours": 3.700000000000003
+            }
+          ],
+          "missed": []
+        },
+        "CM892-5": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 11.2
+            },
+            {
+              "event": "t3",
+              "error_hours": 1.2000000000000028
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 11.799999999999997
+            },
+            {
+              "event": "t6",
+              "error_hours": 12.299999999999997
+            }
+          ],
+          "missed": [
+            "t7",
+            "t9+"
+          ]
+        },
+        "GC851-5": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.3000000000000007
+            },
+            {
+              "event": "t3",
+              "error_hours": 7.9999999999999964
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 7.399999999999999
+            },
+            {
+              "event": "t7",
+              "error_hours": 10.0
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "KA474-5": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.30000000000000426
+            },
+            {
+              "event": "t3",
+              "error_hours": 13.800000000000004
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.8000000000000043
+            },
+            {
+              "event": "t6",
+              "error_hours": 0.7000000000000028
+            },
+            {
+              "event": "t7",
+              "error_hours": 2.200000000000003
+            },
+            {
+              "event": "t8",
+              "error_hours": 1.5
+            },
+            {
+              "event": "t9+",
+              "error_hours": 16.700000000000003
+            }
+          ],
+          "missed": []
+        },
+        "KD774-4": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.3999999999999986
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 1.6999999999999957
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.2999999999999972
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "LP284-3": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 2.5
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.5
+            },
+            {
+              "event": "t6",
+              "error_hours": 0.5
+            },
+            {
+              "event": "t8",
+              "error_hours": 2.3000000000000043
+            }
+          ],
+          "missed": []
+        },
+        "LS1045-4": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.20000000000000284
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.1999999999999957
+            },
+            {
+              "event": "t7",
+              "error_hours": 8.0
+            },
+            {
+              "event": "t8",
+              "error_hours": 7.5
+            },
+            {
+              "event": "t9+",
+              "error_hours": 3.8000000000000114
+            }
+          ],
+          "missed": []
+        },
+        "MA797-4": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.1999999999999993
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t7",
+              "error_hours": 2.0
+            },
+            {
+              "event": "t8",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t9+",
+              "error_hours": 0.5
+            }
+          ],
+          "missed": []
+        },
+        "PJ533-8": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 12.100000000000001
+            },
+            {
+              "event": "t4",
+              "error_hours": 2.700000000000003
+            },
+            {
+              "event": "t5",
+              "error_hours": 2.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 8.300000000000004
+            }
+          ],
+          "missed": [
+            "t7",
+            "t8"
+          ]
+        },
+        "RA803-2": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 0.20000000000000284
+            },
+            {
+              "event": "t6",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t7",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t8",
+              "error_hours": 17.200000000000003
+            },
+            {
+              "event": "t9+",
+              "error_hours": 1.7000000000000028
+            }
+          ],
+          "missed": []
+        },
+        "SK308-7": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.5
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 1.5
+            },
+            {
+              "event": "t7",
+              "error_hours": 18.0
+            },
+            {
+              "event": "t8",
+              "error_hours": 11.200000000000003
+            },
+            {
+              "event": "t9+",
+              "error_hours": 5.0
+            }
+          ],
+          "missed": []
+        },
+        "SS684-8": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 3.0
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.29999999999999716
+            },
+            {
+              "event": "t6",
+              "error_hours": 4.199999999999996
+            },
+            {
+              "event": "t8",
+              "error_hours": 16.699999999999996
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "TM272-9": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.20000000000000284
+            },
+            {
+              "event": "t4",
+              "error_hours": 12.899999999999999
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.5
+            }
+          ],
+          "missed": [
+            "t8"
+          ]
+        },
+        "VA225-6": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.3999999999999986
+            },
+            {
+              "event": "t3",
+              "error_hours": 1.6000000000000014
+            },
+            {
+              "event": "t4",
+              "error_hours": 3.700000000000003
+            },
+            {
+              "event": "t5",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 0.6999999999999957
+            }
+          ],
+          "missed": [
+            "t7",
+            "t8"
+          ]
+        }
+      }
+    },
+    "selected_test": {
+      "mae_hours_matched": 4.3774999999999995,
+      "matched_events": 120,
+      "total_events": 133,
+      "missed_events": 13,
+      "coverage": 0.9022556390977443,
+      "per_video": {
+        "AAL839-6": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 5.599999999999998
+            },
+            {
+              "event": "t4",
+              "error_hours": 3.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 7.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 8.400000000000002
+            },
+            {
+              "event": "t7",
+              "error_hours": 12.599999999999998
+            },
+            {
+              "event": "t9+",
+              "error_hours": 0.5999999999999943
+            }
+          ],
+          "missed": []
+        },
+        "AB91-1": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.1999999999999993
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 11.299999999999997
+            },
+            {
+              "event": "t5",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t7",
+              "error_hours": 0.20000000000000284
+            },
+            {
+              "event": "t8",
+              "error_hours": 15.5
+            },
+            {
+              "event": "t9+",
+              "error_hours": 1.0
+            }
+          ],
+          "missed": []
+        },
+        "AHS115-5": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t3",
+              "error_hours": 3.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 5.299999999999997
+            },
+            {
+              "event": "t7",
+              "error_hours": 1.5
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "AM716-1": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.19999999999999574
+            },
+            {
+              "event": "t4",
+              "error_hours": 13.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 2.5
+            },
+            {
+              "event": "t6",
+              "error_hours": 3.1999999999999957
+            },
+            {
+              "event": "t8",
+              "error_hours": 17.799999999999997
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "AM716-7": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 13.200000000000003
+            },
+            {
+              "event": "t5",
+              "error_hours": 1.5
+            },
+            {
+              "event": "t6",
+              "error_hours": 0.5
+            },
+            {
+              "event": "t7",
+              "error_hours": 1.7000000000000028
+            },
+            {
+              "event": "t8",
+              "error_hours": 18.5
+            },
+            {
+              "event": "t9+",
+              "error_hours": 4.5
+            }
+          ],
+          "missed": []
+        },
+        "BC396-2": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.5
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.29999999999999716
+            },
+            {
+              "event": "t5",
+              "error_hours": 8.299999999999997
+            },
+            {
+              "event": "t7",
+              "error_hours": 24.4
+            },
+            {
+              "event": "t8",
+              "error_hours": 24.699999999999996
+            },
+            {
+              "event": "t9+",
+              "error_hours": 12.699999999999989
+            }
+          ],
+          "missed": []
+        },
+        "BS596-5": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.5999999999999979
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.6000000000000014
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.6999999999999957
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t8",
+              "error_hours": 6.399999999999999
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "CL783-2": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.19999999999999574
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 0.19999999999999574
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t7",
+              "error_hours": 2.6999999999999957
+            },
+            {
+              "event": "t8",
+              "error_hours": 25.1
+            },
+            {
+              "event": "t9+",
+              "error_hours": 3.700000000000003
+            }
+          ],
+          "missed": []
+        },
+        "CM892-5": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 11.2
+            },
+            {
+              "event": "t3",
+              "error_hours": 1.2000000000000028
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 11.799999999999997
+            },
+            {
+              "event": "t6",
+              "error_hours": 12.299999999999997
+            }
+          ],
+          "missed": [
+            "t7",
+            "t9+"
+          ]
+        },
+        "GC851-5": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.3000000000000007
+            },
+            {
+              "event": "t3",
+              "error_hours": 7.9999999999999964
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 7.399999999999999
+            },
+            {
+              "event": "t7",
+              "error_hours": 10.0
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "KA474-5": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.30000000000000426
+            },
+            {
+              "event": "t3",
+              "error_hours": 13.800000000000004
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.8000000000000043
+            },
+            {
+              "event": "t6",
+              "error_hours": 0.7000000000000028
+            },
+            {
+              "event": "t7",
+              "error_hours": 2.200000000000003
+            },
+            {
+              "event": "t8",
+              "error_hours": 1.5
+            },
+            {
+              "event": "t9+",
+              "error_hours": 16.700000000000003
+            }
+          ],
+          "missed": []
+        },
+        "KD774-4": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.3999999999999986
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 1.6999999999999957
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.2999999999999972
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "LP284-3": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 2.5
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.5
+            },
+            {
+              "event": "t6",
+              "error_hours": 0.5
+            },
+            {
+              "event": "t8",
+              "error_hours": 2.3000000000000043
+            }
+          ],
+          "missed": []
+        },
+        "LS1045-4": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.20000000000000284
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.1999999999999957
+            },
+            {
+              "event": "t7",
+              "error_hours": 8.0
+            },
+            {
+              "event": "t8",
+              "error_hours": 7.5
+            },
+            {
+              "event": "t9+",
+              "error_hours": 3.8000000000000114
+            }
+          ],
+          "missed": []
+        },
+        "MA797-4": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.1999999999999993
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t7",
+              "error_hours": 2.0
+            },
+            {
+              "event": "t8",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t9+",
+              "error_hours": 0.5
+            }
+          ],
+          "missed": []
+        },
+        "PJ533-8": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 12.100000000000001
+            },
+            {
+              "event": "t4",
+              "error_hours": 2.700000000000003
+            },
+            {
+              "event": "t5",
+              "error_hours": 2.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 8.300000000000004
+            }
+          ],
+          "missed": [
+            "t7",
+            "t8"
+          ]
+        },
+        "RA803-2": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t5",
+              "error_hours": 0.20000000000000284
+            },
+            {
+              "event": "t6",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t7",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t8",
+              "error_hours": 17.200000000000003
+            },
+            {
+              "event": "t9+",
+              "error_hours": 1.7000000000000028
+            }
+          ],
+          "missed": []
+        },
+        "SK308-7": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.5
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 1.5
+            },
+            {
+              "event": "t7",
+              "error_hours": 18.0
+            },
+            {
+              "event": "t8",
+              "error_hours": 11.200000000000003
+            },
+            {
+              "event": "t9+",
+              "error_hours": 5.0
+            }
+          ],
+          "missed": []
+        },
+        "SS684-8": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 3.0
+            },
+            {
+              "event": "t3",
+              "error_hours": 0.0
+            },
+            {
+              "event": "t4",
+              "error_hours": 0.29999999999999716
+            },
+            {
+              "event": "t6",
+              "error_hours": 4.199999999999996
+            },
+            {
+              "event": "t8",
+              "error_hours": 16.699999999999996
+            }
+          ],
+          "missed": [
+            "t9+"
+          ]
+        },
+        "TM272-9": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.20000000000000284
+            },
+            {
+              "event": "t4",
+              "error_hours": 12.899999999999999
+            },
+            {
+              "event": "t6",
+              "error_hours": 1.5
+            }
+          ],
+          "missed": [
+            "t8"
+          ]
+        },
+        "VA225-6": {
+          "matched": [
+            {
+              "event": "t2",
+              "error_hours": 0.3999999999999986
+            },
+            {
+              "event": "t3",
+              "error_hours": 1.6000000000000014
+            },
+            {
+              "event": "t4",
+              "error_hours": 3.700000000000003
+            },
+            {
+              "event": "t5",
+              "error_hours": 1.0
+            },
+            {
+              "event": "t6",
+              "error_hours": 0.6999999999999957
+            }
+          ],
+          "missed": [
+            "t7",
+            "t8"
+          ]
+        }
+      }
+    }
+  }
+}
